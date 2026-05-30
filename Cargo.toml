@@ -1,0 +1,31 @@
+[package]
+name = "plato-signal-chain"
+version = "0.1.0"
+edition = "2021"
+license = "Apache-2.0"
+description = "Composable 5-layer signal chain pipeline for PLATO rooms"
+repository = "https://github.com/SuperInstance/plato-signal-chain"
+keywords = ["plato", "signal", "pipeline", "iot", "edge"]
+categories = ["embedded", "science"]
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+uuid = { version = "1", features = ["v4", "serde"] }
+
+[features]
+default = []
+ollama = ["reqwest", "tokio", "serde_json"]
+
+[dependencies.reqwest]
+version = "0.12"
+features = ["json"]
+optional = true
+
+[dependencies.tokio]
+version = "1"
+features = ["rt-multi-thread", "macros"]
+optional = true
+
+[dependencies.serde_json]
+version = "1"
+optional = true
